@@ -5,8 +5,8 @@ import '../styles/globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Arda Aras - Portfolio',
-  description: 'Full-Stack Developer Portfolio',
+  title: 'Arda Aras',
+  description: 'Benim Portfolyo Sitem',
   icons: {
     icon: '/favicon.ico',
   },
