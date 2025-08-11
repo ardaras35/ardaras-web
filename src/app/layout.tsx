@@ -1,18 +1,27 @@
-import '../styles/globals.css';
-import Navbar from '../components/Navbar'; 
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import '../styles/globals.css'
 
-export const metadata = {
-  title: 'Arda Aras',
-  description: 'Kişisel portföy sitesi',
-};
+const inter = Inter({ subsets: ['latin'] })
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: 'Arda Aras - Portfolio',
+  description: 'Full-Stack Developer Portfolio',
+  icons: {
+    icon: '/favicon.ico',
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="tr">
-      <body>
-        <Navbar />  
-        {children}    
+      <body className={inter.className}>
+        {children}
       </body>
     </html>
-  );
+  )
 }
