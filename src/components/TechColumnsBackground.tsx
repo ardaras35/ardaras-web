@@ -24,7 +24,6 @@ export default function TechColumnsBackground() {
           className={`col ${i % 2 === 0 ? 'up' : 'down'}`}
           style={{ animationDuration: durations[i % durations.length] }}
         >
-          {/* daha uzun şerit için iki kez dön */}
           {[...logos, ...logos, ...logos].map((src, j) => (
             <img key={j} src={src} alt="" width={64} height={64} loading="lazy" />
           ))}
@@ -39,7 +38,7 @@ export default function TechColumnsBackground() {
     grid-template-columns: repeat(5, 1fr);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.16; /* eskiden 0.08 — daha görünür */
+    opacity: 0.40; 
     overflow: hidden;
   }
   .col {
@@ -59,7 +58,7 @@ export default function TechColumnsBackground() {
     height: auto;
     /* renkleri boğmasın diye grayscale kapalı */
     filter: grayscale(0%) brightness(1.12) saturate(1.15) contrast(1.05);
-    opacity: 1; /* eskiden 0.95 */
+    opacity: 1; 
     user-select: none;
   }
 
@@ -75,7 +74,7 @@ export default function TechColumnsBackground() {
   }
 
   @media (max-width: 640px) {
-    .tech-bg { opacity: 0.12; } /* mobile’da biraz kısıyoruz */
+    .tech-bg { opacity: 0.12; }
   }
   @media (prefers-reduced-motion: reduce) {
     .col { animation: none; }

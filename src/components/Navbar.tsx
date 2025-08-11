@@ -4,36 +4,51 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Navbar() {
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'none',
+    fontSize: '1rem',
+    transition: 'color 0.3s ease',
+  } as const;
+
   return (
     <nav
       style={{
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center', // dikey ortalama
+        alignItems: 'center',
         padding: '1rem 2rem',
         backgroundColor: 'grey',
       }}
     >
+      {/* Logo ve başlık */}
+      <Link
+        href="/"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          textDecoration: 'none',
+        }}
+      >
+        <Image src="/logo.png" alt="Logo" width={40} height={40} />
+        <span style={{ fontWeight: 'bold', fontSize: '1.2rem', color: 'white' }}>
+          Portfolyo
+        </span>
+      </Link>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <Image
-            src="/logo.png" 
-            alt="Logo"
-            width={40}
-            height={40}
-          />
-          <span style={{ fontWeight: 'bold', fontSize: '1.2rem', color: 'white' }}>
-            Portfolyo
-          </span>
-        </Link>
-      </div>
-
-      <div style={{ display: 'flex', gap: '1rem' }}>
-        <Link href="/about" style={{ color: 'white' }}>Hakkımda</Link>
-        <Link href="/projects" style={{ color: 'white' }}>Projeler</Link>
-        <Link href="/technologies" style={{ color: 'white' }}>Teknolojiler</Link>
-        <Link href="/contact" style={{ color: 'white' }}>İletişim</Link>
+      {/* Menü Linkleri */}
+      <div style={{ display: 'flex', gap: '1.5rem' }}>
+        {[
+          { href: '/about', label: 'Hakkımda' },
+          { href: '/projects', label: 'Projeler' },
+          { href: '/technologies', label: 'Teknolojiler' },
+          { href: '/contact', label: 'İletişim' },
+        ].map(({ href, label }) => (
+          <Link key={href} href={href} style={linkStyle}>
+            {label}
+          </Link>
+        ))}
       </div>
     </nav>
   );
