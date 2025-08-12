@@ -131,7 +131,7 @@ export default function HomePage() {
             aria-label="Ana sayfaya dön"
           >
             <Image
-              src="/logo.png" // /public/logo.png
+              src="/logo.png"
               alt="Arda Aras Logo"
               width={40}
               height={40}
@@ -154,7 +154,7 @@ export default function HomePage() {
           </button>
 
           {/* Menü */}
-          <nav style={{ display: 'flex', gap: '2.5rem' }}>
+          <nav style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
             {(['home', 'about', 'projects', 'contact'] as const).map((section) => (
               <button
                 key={section}
@@ -169,7 +169,6 @@ export default function HomePage() {
                   position: 'relative',
                   padding: '0.5rem 0',
                   transition: 'color 0.3s ease',
-                  textTransform: 'capitalize',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#64b5f6')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = activeSection === section ? '#64b5f6' : '#ccc')}
@@ -194,6 +193,35 @@ export default function HomePage() {
                 />
               </button>
             ))}
+            
+            {/* CV Linki */}
+            <a
+              href="/cv"
+              style={{
+                background: 'linear-gradient(135deg, #64b5f6, #42a5f5)',
+                color: 'white',
+                textDecoration: 'none',
+                fontSize: '1rem',
+                padding: '0.5rem 1.2rem',
+                borderRadius: '20px',
+                fontWeight: '600',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 5px 15px rgba(100, 181, 246, 0.3)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(100, 181, 246, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 5px 15px rgba(100, 181, 246, 0.3)';
+              }}
+            >
+              📄 CV
+            </a>
           </nav>
         </div>
       </header>
@@ -208,13 +236,11 @@ export default function HomePage() {
           minHeight: '100vh',
           padding: '0 2rem',
           position: 'relative',
-          overflow: 'hidden', // arka plan taşmalarını gizle
+          overflow: 'hidden',
         }}
       >
-        {/* Arka plan: hareketli teknoloji kolonları */}
         <TechColumnsBackground />
 
-        {/* Ön plan içerik */}
         <div style={{ textAlign: 'center', maxWidth: '800px', zIndex: 1, position: 'relative' }}>
           <div style={{ fontSize: '1.2rem', color: '#64b5f6', marginBottom: '1rem', opacity: 0.9 }}>
             👋 Merhaba, ben
@@ -236,9 +262,9 @@ export default function HomePage() {
           </h2>
 
           <p style={{ fontSize: '1.4rem', color: '#b0bec5', marginBottom: '3rem', lineHeight: '1.6' }}>
-            Frontend Developer • React, Next.js, TypeScript ile
+            Jr. Full Stack Developer 
             <br />
-            kullanıcı deneyimini ön planda tutan web uygulamaları geliştiriyorum
+            Güncel teknolojiler ile kullanıcı deneyimini ön planda tutan web/mobil uygulamaları geliştiriyorum.
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -255,7 +281,6 @@ export default function HomePage() {
                 cursor: 'pointer',
                 boxShadow: '0 10px 30px rgba(100, 181, 246, 0.3)',
                 transition: 'all 0.3s ease',
-                transform: 'translateY(0px)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px)';
@@ -266,7 +291,7 @@ export default function HomePage() {
                 e.currentTarget.style.boxShadow = '0 10px 30px rgba(100, 181, 246, 0.3)';
               }}
             >
-              🚀 Projelerimi İncele
+              🚀 Projelerim
             </button>
 
             <button
@@ -295,20 +320,6 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '2rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            animation: 'bounce 2s infinite',
-          }}
-        >
-          <div style={{ fontSize: '0.9rem', color: '#64b5f6', marginBottom: '0.5rem' }}>Aşağı kaydır</div>
-          <div style={{ fontSize: '1.5rem', color: '#64b5f6' }}>↓</div>
-        </div>
       </section>
 
       {/* ABOUT */}
@@ -335,8 +346,11 @@ export default function HomePage() {
             🧑‍💻 Hakkımda
           </h3>
           <p style={{ fontSize: '1.3rem', color: '#b0bec5', lineHeight: '1.8', marginBottom: '3rem' }}>
-            Frontend geliştirme alanında 3+ yıllık deneyime sahip, kullanıcı deneyimini ön planda tutan modern web
-            uygulamaları geliştiren bir yazılımcıyım. Clean code yazmayı seven, sürekli öğrenmeye açık bir geliştiriciyim.
+            Merhaba, Ben Arda. 21 yaşındayım. Ege Üniversitesi Bilgisayar Programcılığı mezunuyum.
+
+            Kullanıcı odaklı, modern web/mobil uygulamalar geliştirmeye ilgili bir geliştiriciyim. 
+            React, Next.js ve TypeScript gibi teknolojilerle projeler üretiyorum.
+            Clean code yazmayı seven, sürekli öğrenmeye, öğrendiklerimi projelerimde uygulamaya açık bir geliştiriciyim.
           </p>
           <p>Bu site React ve Next.js teknolojileri kullanılarak geliştirildi.</p>
 
@@ -398,100 +412,369 @@ export default function HomePage() {
       </section>
 
       {/* PROJECTS */}
-      <section id="projects" style={{ padding: '6rem 2rem', background: 'rgba(10, 10, 10, 0.8)' }}>
+      <section id="projects" style={{ padding: '6rem 2rem', background: 'rgba(10, 10, 10, 0.8)', position: 'relative' }}>
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(ellipse at 50% 20%, rgba(100, 181, 246, 0.1) 0%, transparent 70%)',
+            zIndex: -1,
+          }}
+        />
+        
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <h3
-            style={{
-              fontSize: '3rem',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginBottom: '4rem',
-              background: 'linear-gradient(135deg, #64b5f6, #42a5f5)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            🚀 Projelerim
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+            <h3
+              style={{
+                fontSize: '3rem',
+                fontWeight: 'bold',
+                marginBottom: '1rem',
+                background: 'linear-gradient(135deg, #64b5f6, #42a5f5)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              🚀 Projelerim
+            </h3>
+            <p style={{ fontSize: '1.2rem', color: '#b0bec5', maxWidth: '600px', margin: '0 auto' }}>
+              Modern teknolojiler kullanarak geliştirdiğim projeler. Her birini deneyimleyebilir ve kodlarına göz atabilirsiniz.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2.5rem' }}>
             {[
               {
-                title: 'E-Ticaret Platformu',
-                desc: 'Modern React ve Node.js ile geliştirilmiş tam özellikli e-ticaret sitesi',
-                tech: ['React', 'Node.js', 'MongoDB'],
-                gradient: 'linear-gradient(135deg, #667eea, #764ba2)',
+                title: 'Portfolio Website',
+                desc: 'Next.js ve TypeScript ile geliştirilmiş modern portfolio sitesi. SEO optimizasyonu ve performans odaklı tasarım.',
+                tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+                gradient: 'linear-gradient(135deg, #f093fb, #f5576c)',
+                icon: '💼',
+                codesandbox: 'https://codesandbox.io/s/portfolio-next-demo',
+                github: 'https://github.com/ardaras35/portfolio-nextjs',
+                features: ['SEO optimizasyonu', 'Dark/Light mode', 'Animasyonlar', 'Blog entegrasyonu'],
+                status: 'Geliştiriliyor',
+                year: '2024'
               },
               {
                 title: 'Portfolio Website',
-                desc: 'Next.js ve TypeScript ile geliştirilmiş responsive portfolio sitesi',
-                tech: ['Next.js', 'TypeScript', 'CSS'],
+                desc: 'Next.js ve TypeScript ile geliştirilmiş modern portfolio sitesi. SEO optimizasyonu ve performans odaklı tasarım.',
+                tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
                 gradient: 'linear-gradient(135deg, #f093fb, #f5576c)',
+                icon: '💼',
+                codesandbox: 'https://codesandbox.io/s/portfolio-next-demo',
+                github: 'https://github.com/ardaras35/portfolio-nextjs',
+                features: ['SEO optimizasyonu', 'Dark/Light mode', 'Animasyonlar', 'Blog entegrasyonu'],
+                status: 'Tamamlandı',
+                year: '2025'
               },
               {
-                title: 'Task Management App',
-                desc: 'React ve Firebase ile real-time görev yönetim uygulaması',
-                tech: ['React', 'Firebase', 'CSS'],
+                title: 'Duty Teacher Scheduling App',
+                desc: 'React ve Firebase ile real-time görev yönetim uygulaması. Takım çalışması ve proje yönetimi için ideal.',
+                tech: ['React', 'Firebase', 'Material-UI', 'Redux'],
                 gradient: 'linear-gradient(135deg, #4facfe, #00f2fe)',
+                icon: '📋',
+                codesandbox: 'https://codesandbox.io/p/github/ardaras35/react-native-nobetproje/draft/wispy-tree',
+                github: 'https://github.com/ardaras35/react-native-nobetproje',
+                features: ['Real-time sync'],
+                status: 'Tamamlandı',
+                year: '2025'
               },
             ].map((project, i) => (
               <div
                 key={i}
                 style={{
-                  background: 'rgba(26, 26, 46, 0.8)',
-                  padding: '2rem',
-                  borderRadius: '20px',
+                  background: 'linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.8))',
+                  borderRadius: '25px',
                   border: '1px solid rgba(100, 181, 246, 0.2)',
-                  backdropFilter: 'blur(10px)',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer',
+                  backdropFilter: 'blur(20px)',
+                  transition: 'all 0.4s ease',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
                 }}
                 onMouseEnter={(e) => {
-                  const target = e.currentTarget;
-                  target.style.transform = 'translateY(-10px)';
-                  target.style.boxShadow = '0 20px 40px rgba(100, 181, 246, 0.2)';
+                  e.currentTarget.style.transform = 'translateY(-15px)';
+                  e.currentTarget.style.boxShadow = '0 25px 50px rgba(100, 181, 246, 0.2)';
                 }}
                 onMouseLeave={(e) => {
-                  const target = e.currentTarget;
-                  target.style.transform = 'translateY(0px)';
-                  target.style.boxShadow = 'none';
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
                 }}
               >
+                {/* Header */}
+                <div style={{ padding: '2rem 2rem 1rem 2rem', position: 'relative' }}>
+                  {/* Status badge */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '1rem',
+                      right: '1rem',
+                      padding: '0.3rem 0.8rem',
+                      background: project.status === 'Tamamlandı' 
+                        ? 'linear-gradient(90deg, #4caf50, #45a049)' 
+                        : 'linear-gradient(90deg, #ff9800, #f57c00)',
+                      color: 'white',
+                      borderRadius: '15px',
+                      fontSize: '0.8rem',
+                      fontWeight: '600',
+                    }}
+                  >
+                    {project.status}
+                  </div>
+
+                  <div
+                    style={{
+                      width: '80px',
+                      height: '80px',
+                      background: project.gradient,
+                      borderRadius: '20px',
+                      marginBottom: '1.5rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '2rem',
+                      boxShadow: '0 10px 25px rgba(100, 181, 246, 0.3)',
+                    }}
+                  >
+                    {project.icon}
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+                    <h4 style={{ fontSize: '1.6rem', color: '#64b5f6', fontWeight: '700', margin: 0 }}>
+                      {project.title}
+                    </h4>
+                    <span style={{ color: '#64b5f6', fontSize: '0.9rem', opacity: 0.7 }}>
+                      {project.year}
+                    </span>
+                  </div>
+
+                  <p style={{ color: '#b0bec5', marginBottom: '1.5rem', lineHeight: '1.7' }}>
+                    {project.desc}
+                  </p>
+
+                  {/* Features */}
+                  <div style={{ marginBottom: '2rem' }}>
+                    <h5 style={{ color: '#64b5f6', fontSize: '0.9rem', marginBottom: '0.8rem', fontWeight: '600' }}>
+                      ✨ Özellikler
+                    </h5>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+                      {project.features.map((feature, j) => (
+                        <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <div style={{ width: '4px', height: '4px', background: '#64b5f6', borderRadius: '50%' }} />
+                          <span style={{ color: '#b0bec5', fontSize: '0.85rem' }}>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+                    {project.tech.map((tech, j) => (
+                      <span
+                        key={j}
+                        style={{
+                          background: 'rgba(100, 181, 246, 0.2)',
+                          color: '#64b5f6',
+                          padding: '0.4rem 0.9rem',
+                          borderRadius: '20px',
+                          fontSize: '0.85rem',
+                          border: '1px solid rgba(100, 181, 246, 0.3)',
+                        }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
                 <div
                   style={{
-                    width: '60px',
-                    height: '60px',
-                    background: project.gradient,
-                    borderRadius: '15px',
-                    marginBottom: '1.5rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1.5rem',
+                    padding: '1.5rem 2rem 2rem 2rem',
+                    background: 'linear-gradient(135deg, rgba(100, 181, 246, 0.05), rgba(66, 165, 245, 0.05))',
+                    borderTop: '1px solid rgba(100, 181, 246, 0.1)',
                   }}
                 >
-                  💻
-                </div>
-                <h4 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#64b5f6' }}>{project.title}</h4>
-                <p style={{ color: '#b0bec5', marginBottom: '1.5rem', lineHeight: '1.6' }}>{project.desc}</p>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  {project.tech.map((tech, j) => (
-                    <span
-                      key={j}
+                  <div style={{ display: 'flex', gap: '1rem' }}>
+                    {/* Demo Butonu */}
+                    <a
+                      href={project.codesandbox}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{
-                        background: 'rgba(100, 181, 246, 0.2)',
-                        color: '#64b5f6',
-                        padding: '0.3rem 0.8rem',
+                        flex: 1,
+                        background: 'linear-gradient(135deg, #64b5f6, #42a5f5)',
+                        color: 'white',
+                        padding: '0.9rem 1.5rem',
                         borderRadius: '15px',
-                        fontSize: '0.9rem',
+                        fontSize: '0.95rem',
+                        fontWeight: '600',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.5rem',
+                        transition: 'all 0.3s ease',
+                        boxShadow: '0 5px 15px rgba(100, 181, 246, 0.3)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                        e.currentTarget.style.boxShadow = '0 8px 25px rgba(100, 181, 246, 0.4)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0px)';
+                        e.currentTarget.style.boxShadow = '0 5px 15px rgba(100, 181, 246, 0.3)';
                       }}
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      <span>🚀</span>
+                      Dene!
+                    </a>
+
+                    {/* GitHub Butonu */}
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        flex: 1,
+                        background: 'transparent',
+                        color: '#64b5f6',
+                        padding: '0.9rem 1.5rem',
+                        borderRadius: '15px',
+                        border: '2px solid rgba(100, 181, 246, 0.4)',
+                        fontSize: '0.95rem',
+                        fontWeight: '600',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.5rem',
+                        transition: 'all 0.3s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'rgba(100, 181, 246, 0.1)';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'transparent';
+                        e.currentTarget.style.transform = 'translateY(0px)';
+                      }}
+                    >
+                      <span>💻</span>
+                      GitHub
+                    </a>
+                  </div>
+
+                  {/* Ek Info */}
+                  <div
+                    style={{
+                      marginTop: '1rem',
+                      padding: '0.8rem',
+                      background: 'rgba(100, 181, 246, 0.05)',
+                      borderRadius: '10px',
+                      border: '1px solid rgba(100, 181, 246, 0.1)',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ fontSize: '0.8rem' }}>💡</span>
+                      <span style={{ color: '#b0bec5', fontSize: '0.85rem' }}>
+                        CodeSandbox'ta canlı olarak deneyimleyebilirsiniz.
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Call to Action */}
+          <div
+            style={{
+              textAlign: 'center',
+              marginTop: '4rem',
+              padding: '3rem 2rem',
+              background: 'linear-gradient(135deg, rgba(100, 181, 246, 0.1), rgba(66, 165, 245, 0.05))',
+              borderRadius: '25px',
+              border: '1px solid rgba(100, 181, 246, 0.2)',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <h4
+              style={{
+                fontSize: '1.8rem',
+                marginBottom: '1rem',
+                background: 'linear-gradient(135deg, #64b5f6, #42a5f5)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              🎯 Daha Fazla Proje
+            </h4>
+            <p style={{ color: '#b0bec5', marginBottom: '2rem', fontSize: '1.1rem' }}>
+              GitHub profilimde daha fazla proje ve açık kaynak katkılarımı keşfedebilirsiniz
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a
+                href="https://github.com/ardaras35"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.8rem',
+                  background: 'linear-gradient(135deg, #24292e, #1a1e22)',
+                  color: 'white',
+                  padding: '1rem 2rem',
+                  borderRadius: '20px',
+                  textDecoration: 'none',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+                }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>🐙</span>
+                GitHub Profilim
+              </a>
+
+              <a
+                href="/cv"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.8rem',
+                  background: 'linear-gradient(135deg, #64b5f6, #42a5f5)',
+                  color: 'white',
+                  padding: '1rem 2rem',
+                  borderRadius: '20px',
+                  textDecoration: 'none',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 10px 25px rgba(100, 181, 246, 0.3)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.boxShadow = '0 15px 35px rgba(100, 181, 246, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(100, 181, 246, 0.3)';
+                }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>📄</span>
+                Detaylı CV
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -524,18 +807,18 @@ export default function HomePage() {
           </p>
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1rem',
-              alignItems: 'center',
-              maxWidth: '400px',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.5rem',
+              maxWidth: '800px',
               margin: '0 auto',
             }}
           >
             {[
-              { label: '📧 Email', href: 'mailto:arda@example.com', text: 'arda@example.com' },
-              { label: '💼 LinkedIn', href: '#', text: 'LinkedIn Profilim' },
-              { label: '🐙 GitHub', href: '#', text: 'GitHub Profilim' },
+              { label: '📧 E-posta', href: 'mailto:aardarass35@gmail.com', text: 'aardarass35@gmail.com' },
+              { label: '🐙 GitHub', href: 'https://github.com/ardaras35', text: 'GitHub Profilim' },
+              { label: '📞 Whatsapp', href: 'https://wa.me/905308901750', text: 'Whatsapp İletişim' },
+              { label: '📄 CV Görüntüle', href: '/cv', text: 'Detaylı CV\'mi İncele' },
             ].map((contact, i) => (
               <a
                 key={i}
@@ -547,9 +830,9 @@ export default function HomePage() {
                   textDecoration: 'none',
                   borderRadius: '15px',
                   border: '2px solid rgba(100, 181, 246, 0.3)',
-                  width: '100%',
                   transition: 'all 0.3s ease',
                   backdropFilter: 'blur(10px)',
+                  display: 'block',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = '#64b5f6';
