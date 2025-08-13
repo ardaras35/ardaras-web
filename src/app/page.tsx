@@ -448,7 +448,7 @@ export default function HomePage() {
                   github: 'https://github.com/ardaras35/portfolio-nextjs',
                   features: ['Ses ve görüntü işleme', 'Kullanıcı dostu arayüz', 'Gerçek zamanlı önizleme'],
                   status: 'Geliştiriliyor',
-                  year: '2024'
+                  year: '2025'
                 },
                 {
                   title: 'Nöbetçi Öğretmen Görüntüleme Uygulaması',
