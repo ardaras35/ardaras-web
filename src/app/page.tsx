@@ -343,8 +343,8 @@ export default function HomePage() {
             </h3>
             <p style={{ fontSize: '1.3rem', color: '#b0bec5', lineHeight: '1.8', marginBottom: '3rem' }}>
               Merhaba, Ben Arda. 21 yaşındayım. Ege Üniversitesi Bilgisayar Programcılığı mezunuyum.
-              Kullanıcı odaklı, modern web/mobil uygulamalar geliştirmeye ilgili bir geliştiriciyim. 
-              React, Next.js ve TypeScript gibi teknolojilerle projeler üretiyorum.
+              Kullanıcı odaklı, modern web/mobil uygulamalar üretmekle ilgilenen bir geliştiriciyim. 
+              React, React Native, Next.js ve Node.js gibi teknolojilerle projeler üretiyorum.
               Clean code yazmayı seven, sürekli öğrenmeye, öğrendiklerimi projelerimde uygulamaya açık bir geliştiriciyim.
             </p>
             <p>Bu site React ve Next.js teknolojileri kullanılarak geliştirildi.</p>
