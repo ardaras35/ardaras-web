@@ -1,4 +1,6 @@
+
 'use client';
+import Image from 'next/image';
 
 const COLS: string[][] = [
   // 1. kolon (yukarıdan başlasın)
@@ -25,7 +27,7 @@ export default function TechColumnsBackground() {
           style={{ animationDuration: durations[i % durations.length] }}
         >
           {[...logos, ...logos, ...logos].map((src, j) => (
-            <img key={j} src={src} alt="" width={64} height={64} loading="lazy" />
+            <Image key={j} src={src} alt="" width={64} height={64} loading="lazy" />
           ))}
         </div>
       ))}

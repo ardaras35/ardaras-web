@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function CVPage() {
@@ -313,7 +314,7 @@ export default function CVPage() {
         }}>
           <p style={{ margin: 0, fontSize: '0.9rem' }}>
             💡 <strong>İpucu:</strong> Resimleri tam boyutta görmek için üzerine tıklayın. 
-            PDF formatında indirmek için yukarıdaki "PDF İndir" butonunu kullanın.
+            PDF formatında indirmek için yukarıdaki &quot;PDF İndir&quot; butonunu kullanın.
           </p>
         </div>
       </div>
@@ -347,24 +348,26 @@ export default function CVPage() {
             gap: '1rem',
           }}
         >
-          <a
-            href="/"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              color: '#64b5f6',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              transition: 'all 0.3s ease',
-              padding: '0.5rem 1rem',
-              borderRadius: '10px',
-              border: '1px solid rgba(100, 181, 246, 0.3)',
-            }}
-          >
-            <span>←</span>
-            Ana Sayfaya Dön
-          </a>
+          {/* Replaced <a> with <Link> for Next.js navigation */}
+          <Link href="/" legacyBehavior>
+            <a
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                color: '#64b5f6',
+                textDecoration: 'none',
+                fontSize: '1rem',
+                transition: 'all 0.3s ease',
+                padding: '0.5rem 1rem',
+                borderRadius: '10px',
+                border: '1px solid rgba(100, 181, 246, 0.3)'
+              }}
+            >
+              <span>←</span>
+              Ana Sayfaya Dön
+            </a>
+          </Link>
 
           <h1
             style={{
