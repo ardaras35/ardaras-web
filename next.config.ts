@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  images: { unoptimized: true },
+  output: "export",
+  assetPrefix: "/",   // tüm assetler relative olsun
   trailingSlash: true,
 };
 

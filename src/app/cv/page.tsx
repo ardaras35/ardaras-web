@@ -1,13 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 type Lang = 'tr' | 'en';
 
 export default function CVPage() {
   const [lang, setLang] = useState<Lang>('tr');
+  const router = useRouter();
 
-  // PNG sayfaları 
+  // PNG sayfaları (public klasörü altında olduğundan emin ol)
   const cvImages: Record<Lang, string[]> = {
     tr: ['/cv-tr-1.png', '/cv-tr-2.png'],
     en: ['/cv-en-1.png', '/cv-en-2.png'],
@@ -29,6 +31,30 @@ export default function CVPage() {
           gap: '1rem',
         }}
       >
+        {/* Sol üstte geri butonu */}
+        <button
+          onClick={() => {
+            if (window.history.length > 1) {
+              router.back();
+            } else {
+              router.push('/'); // fallback olarak ana sayfaya yönlendir
+            }
+          }}
+          style={{
+            position: 'absolute',
+            left: '1rem',
+            top: '1rem',
+            padding: '0.4rem 0.8rem',
+            borderRadius: 6,
+            border: '1px solid #64b5f6',
+            background: 'transparent',
+            color: '#64b5f6',
+            cursor: 'pointer',
+          }}
+        >
+          ← Geri
+        </button>
+
         <h1
           style={{
             fontSize: '1.8rem',
@@ -41,7 +67,6 @@ export default function CVPage() {
         >
           CV
         </h1>
-        
 
         {/* Dil butonları */}
         <div style={{ display: 'flex', gap: '0.5rem' }}>
